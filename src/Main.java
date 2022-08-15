@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -22,6 +23,8 @@ public class Main {
                 show(list);
             } else if (input.equals("3")) {
                 delete(list);
+            } else if (input.equals("4")) {
+                find(list);
             } else if (input.equals("end")) {
                 return;
             } else {
@@ -60,4 +63,15 @@ public class Main {
         show(list);
     }
 
+    public static void find(List<String> list) {
+        List<String> clone = list;
+        String input = scanner.nextLine();
+        input = input.toLowerCase();
+        for (int i = 0; i < list.size(); i++) {
+            String copy = list.get(i).toLowerCase();
+            if (copy.contains(input)) {
+                System.out.println((i + 1) + ". " + list.get(i));
+            }
+        }
+    }
 }
